@@ -1,5 +1,6 @@
 import { CheckOutlined } from '@ant-design/icons';
 import { Tooltip } from 'antd';
+import { ColorPicker } from 'antd/lib';
 import React from 'react';
 
 export type TagProps = {
@@ -61,6 +62,12 @@ const ThemeColor: React.ForwardRefRenderFunction<
           </Tooltip>
         );
       })}
+      <ColorPicker
+        style={{ marginTop: 6 }}
+        size="small"
+        disabledAlpha
+        onChange={(e) => onChange && onChange(e.toHexString())}
+      />
     </div>
   );
 };

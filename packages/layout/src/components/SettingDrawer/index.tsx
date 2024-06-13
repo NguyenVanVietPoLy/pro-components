@@ -79,6 +79,7 @@ export type SettingDrawerProps = {
   pathname?: string;
   disableUrlParams?: boolean;
   themeOnly?: boolean;
+  renderFooter?: React.ReactNode;
 };
 
 export type SettingDrawerState = {
@@ -593,6 +594,7 @@ export const SettingDrawer: React.FC<SettingDrawerProps> = (props) => {
                   {formatMessage({ id: 'app.setting.copy' })}
                 </Button>
               )}
+              {props.renderFooter}
             </>
           )}
         </div>

@@ -4,6 +4,7 @@ import itITLocal from './it-IT';
 import koKRLocal from './ko-KR';
 import zhLocal from './zh-CN';
 import zhTWLocal from './zh-TW';
+import viVNLocal from './vi-VN';
 
 const locales = {
   'zh-CN': zhLocal,
@@ -11,6 +12,7 @@ const locales = {
   'en-US': enUSLocal,
   'it-IT': itITLocal,
   'ko-KR': koKRLocal,
+  'vi-VN': viVNLocal,
 };
 
 type GLocaleWindow = {
@@ -21,7 +23,7 @@ export type LocaleType = keyof typeof locales;
 
 export const getLanguage = (): string => {
   // support ssr
-  if (!isBrowser()) return 'zh-CN';
+  if (!isBrowser()) return 'vi-VN';
   const lang = window.localStorage.getItem('umi_locale');
   return (
     lang || (window as unknown as GLocaleWindow).g_locale || navigator.language
@@ -29,5 +31,5 @@ export const getLanguage = (): string => {
 };
 export const gLocaleObject = (): Record<string, string> => {
   const gLocale = getLanguage();
-  return locales[gLocale as 'zh-CN'] || locales['zh-CN'];
+  return locales[gLocale as 'zh-CN'] || locales['vi-VN'];
 };
